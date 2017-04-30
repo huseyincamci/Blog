@@ -4,8 +4,8 @@
 }
 
 <h2>Makaleler</h2>
-<br />
-
+<hr />
+@Html.ActionLink("Yeni Makale Ekle", "Create", null , new { @class = "btn btn-warning"})
 <div class="row">
     <div class="col-md-12">
         @if (Model.ToList().Count > 0)
