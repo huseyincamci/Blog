@@ -1,5 +1,4 @@
-﻿using Blog.BLL.DataServices;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 
 namespace Blog.Web.UI.Controllers
 {
@@ -7,9 +6,7 @@ namespace Blog.Web.UI.Controllers
     {
         public ActionResult Index()
         {
-            MakaleRepository makaleRepository = new MakaleRepository();
-            var makaleler = makaleRepository.GetList();
-            return View(makaleler);
+            return View();
         }
     }
 }
