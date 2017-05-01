@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="Data\Context\ApplicationDbContext.cs" />
     <Compile Include="Data\Entities\AppUser.cs" />
+    <Compile Include="Data\Entities\Etiket.cs" />
     <Compile Include="Data\Entities\Kategori.cs" />
     <Compile Include="Data\Entities\Makale.cs" />
     <Compile Include="Migrations\Configuration.cs" />

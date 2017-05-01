@@ -13,10 +13,10 @@ namespace Blog.DAL.Data.Entities
         [Required]
         public string Email { get; set; }
         public DateTime LastActivityDate { get; set; }  
-        public DateTime CreatedDate { get; set; }
+        public DateTime CreatedDate { get; set; } = DateTime.Now;
         public DateTime? DeletedDate { get; set; }
         public DateTime? UpdatedDate { get; set; }
-        public bool IsActive { get; set; }
-        public bool IsDeleted { get; set; }
+        public bool IsActive { get; set; } = true;
+        public bool IsDeleted { get; set; } = false;
     }
 }

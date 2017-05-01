@@ -11,13 +11,24 @@ namespace Blog.DAL.Data.Context
             Database.SetInitializer(new CreateDatabaseIfNotExists<ApplicationDbContext>());
         }
 
+        public DbSet<AppUser> AppUsers { get; set; }
+        public DbSet<Makale> Makales { get; set; }
+        public DbSet<Kategori> Kategoris { get; set; }
+        public DbSet<Etiket> Etikets { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
-        }
 
-        public DbSet<AppUser> AppUsers { get; set; }    
-        public DbSet<Makale> Makales { get; set; }
-        public DbSet<Kategori> Kategoris { get; set; }  
+            modelBuilder.Entity<Makale>()
+                .HasMany(m => m.Etikets)
+                .WithMany(e => e.Makales)
+                .Map(me =>
+                {
+                    me.MapLeftKey("MakeleId");
+                    me.MapRightKey("EtiketId");
+                    me.ToTable("MakaleEtiket");
+                });
+        }
     }
 }
