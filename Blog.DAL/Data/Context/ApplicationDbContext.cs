@@ -16,6 +16,7 @@ namespace Blog.DAL.Data.Context
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
         }
 
+        public DbSet<AppUser> AppUsers { get; set; }    
         public DbSet<Makale> Makales { get; set; }
         public DbSet<Kategori> Kategoris { get; set; }  
     }

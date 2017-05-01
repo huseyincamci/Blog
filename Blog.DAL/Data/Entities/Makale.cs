@@ -19,5 +19,9 @@ namespace Blog.DAL.Data.Entities
 
         public int KategoriId { get; set; } 
         public Kategori Kategori { get; set; }
+
+
+        public int? UserId { get; set; }
+        public AppUser User { get; set; }   
     }
 }
