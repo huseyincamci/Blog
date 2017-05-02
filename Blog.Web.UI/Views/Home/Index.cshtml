@@ -2,3 +2,33 @@
 @{
     ViewBag.Title = "Home - Blog";
 }
+
+<div class="row">
+    @if (Model.ToList().Count > 0)
+    {
+        foreach (var makale in Model)
+        {
+            <div class="col-md-7">
+                <div class="panel panel-default">
+                    <div class="row">
+                        <img src="~/Uploads/pexels-photo.jpg" alt="tech" class="col-md-12" height="250" />
+                    </div>
+                    <div class="panel-body">
+                        <h3>@makale.Baslik</h3>
+                        <p>
+                            @Html.Raw(makale.Ozet);
+                        </p>
+                    </div>
+                    <div class="panel-footer">
+                        <div class="row">
+                            <div class="col-md-3"><span class="glyphicon glyphicon-calendar"></span> @makale.CreatedDate.ToShortDateString()</div>
+                            <div class="col-md-3"><span class="glyphicon glyphicon-eye-open"></span> @makale.Views</div>
+                            <div class="col-md-3"><span class="glyphicon glyphicon-thumbs-up"></span> @makale.Like</div>
+                            <div class="col-md-3"><span class="glyphicon glyphicon-thumbs-down"></span> @makale.Dislike</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+</div>
