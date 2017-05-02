@@ -26,7 +26,7 @@ namespace Blog.DAL.Data.Entities
 
 
         public int? UserId { get; set; }
-        public AppUser User { get; set; }
+        public virtual AppUser User { get; set; }
 
         public virtual ICollection<Etiket> Etikets{ get; set; } 
     }
