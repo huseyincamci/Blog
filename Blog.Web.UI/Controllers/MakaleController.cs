@@ -1,7 +1,9 @@
 ﻿using Blog.BLL.DataServices;
 using Blog.DAL.Data.Entities;
 using Blog.Web.UI.ViewModels;
+using PagedList;
 using System;
+using System.Linq;
 using System.Web.Mvc;
 
 namespace Blog.Web.UI.Controllers
@@ -15,9 +17,9 @@ namespace Blog.Web.UI.Controllers
             _makaleRepository = new MakaleRepository();
         }
         // GET: Makale
-        public ActionResult Index()
+        public ActionResult Index(int sayfa = 1)
         {
-            var makaleler = _makaleRepository.GetList();
+            var makaleler = _makaleRepository.GetList().OrderByDescending(x => x.Id).ToPagedList(sayfa, 20);
             return View(makaleler);
         }
 
