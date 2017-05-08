@@ -1,4 +1,6 @@
-﻿@model IEnumerable<Blog.DAL.Data.Entities.Makale>
+﻿@model PagedList.PagedList<Blog.DAL.Data.Entities.Makale>
+@using PagedList.Mvc
+
 @{
     ViewBag.Title = "Home - Blog";
 }
@@ -31,4 +33,7 @@
             </div>
         }
     }
+    <div class="col-md-7">
+        @Html.PagedListPager(Model, sayfa => Url.Action("Index", new { sayfa }), PagedListRenderOptions.Classic)
+    </div>
 </div>
